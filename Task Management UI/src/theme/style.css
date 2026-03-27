@@ -1,0 +1,35 @@
+@font-face {
+  font-family: Volte-Semibold;
+  src: url(./fonts/3A9331_0_0.eot);
+  src:
+    url(./fonts/3A9331_0_0.eot?#iefix) format('embedded-opentype'),
+    url(./fonts/3A9331_0_0.woff2.woff) format('woff2'),
+    url(./fonts/3A9331_0_0.woff) format('woff'),
+    url(./fonts/3A9331_0_0.ttf) format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Volte-Medium;
+  src: url(./fonts/3A9331_1_0.eot);
+  src:
+    url(./fonts/3A9331_1_0.eot?#iefix) format('embedded-opentype'),
+    url(./fonts/3A9331_1_0.woff2.woff) format('woff2'),
+    url(./fonts/3A9331_1_0.woff) format('woff'),
+    url(./fonts/3A9331_1_0.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: VolteRounded-Semibold;
+  src: url(./fonts/3A9331_2_0.eot);
+  src:
+    url(./fonts/3A9331_2_0.eot?#iefix) format('embedded-opentype'),
+    url(./fonts/3A9331_2_0.woff2.woff) format('woff2'),
+    url(./fonts/3A9331_2_0.woff) format('woff'),
+    url(./fonts/3A9331_2_0.ttf) format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}

@@ -1,0 +1,11 @@
+#!/bin/bash
+COMMIT_MSG_FILE="$1"
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Regular expression to validate the commit message format
+REGEX='^PCTM-[0-9]{1,4}:[ ]{1}(feat|fix|docs|style|refactor|test|chore)-[A-Za-z](.)+$'
+
+if ! [[ "$COMMIT_MSG" =~ $REGEX ]]; then
+    echo "ERROR: Commit message must follow the format: 'PCTM-XXXX: (feat|fix|docs|style|refactor|test|chore)-Message'" >&2
+    exit 1
+fi

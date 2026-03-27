@@ -1,0 +1,17 @@
+form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+details {
+  width: 100%;
+}
+
+summary {
+  cursor: pointer;
+  width: max-content;
+}
+
+details[open] summary {
+  margin-bottom: 1rem;
+}

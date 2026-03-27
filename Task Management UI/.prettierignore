@@ -1,0 +1,5 @@
+node_modules/
+build/
+setupTests
+reportWebVitals
+eslint.config.mjs
