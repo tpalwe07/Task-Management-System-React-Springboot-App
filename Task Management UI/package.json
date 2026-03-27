@@ -10,7 +10,8 @@
     "lint:fix": "eslint src/**/*.{js,mjs,cjs,ts,jsx,tsx} --fix",
     "pretty": "npx prettier src --check",
     "pretty:fix": "npm run pretty -- --write",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
