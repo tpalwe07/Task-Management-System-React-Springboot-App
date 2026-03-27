@@ -64,12 +64,6 @@
       "npm run pretty"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "test:ci"
-    }
-  },
   "overrides": {
     "@eslint/plugin-kit": "0.4.0"
   }
