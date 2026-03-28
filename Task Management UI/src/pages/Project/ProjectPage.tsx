@@ -8,7 +8,36 @@ import type { Field, FormValues } from '../../components/Form/types';
 import dayjs from 'dayjs';
 import type { Project } from '../../models/project.model';
 import { createProject } from '../../services/project';
-import useToast from '../../hooks/responsive/useToast';
+import useToast from '../../hooks/useToast';
+import ProjectCard from '../../components/Card/Card';
+import Grid from '@mui/material/Grid';
+
+const demoProjects: Project[] = [
+  { title: 'Project 1', projectId: 1 },
+  { title: 'Project 2', projectId: 2 },
+  { title: 'Project 3', projectId: 3 },
+  { title: 'Project 4', projectId: 4 },
+  { title: 'Project 5', projectId: 5 },
+  { title: 'Project 6', projectId: 6 },
+  { title: 'Project 7', projectId: 7 },
+  { title: 'Project 8', projectId: 8 },
+  { title: 'Project 9', projectId: 9 },
+  { title: 'Project 10', projectId: 10 },
+  { title: 'Project 11', projectId: 11 },
+  { title: 'Project 12', projectId: 12 },
+  { title: 'Project 13', projectId: 13 },
+  { title: 'Project 14', projectId: 14 },
+  { title: 'Project 15', projectId: 15 },
+  { title: 'Project 16', projectId: 16 },
+  { title: 'Project 17', projectId: 17 },
+  { title: 'Project 18', projectId: 18 },
+  { title: 'Project 19', projectId: 19 },
+  { title: 'Project 20', projectId: 20 },
+  { title: 'Project 21', projectId: 21 },
+  { title: 'Project 22', projectId: 22 },
+  { title: 'Project 23', projectId: 23 },
+  { title: 'Project 24', projectId: 24 }
+];
 
 const fields: Field[] = [
   {
@@ -69,6 +98,11 @@ const ProjectPage: React.FC = () => {
           <AddIcon />
         </IconButton>
       </Box>
+      <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
+        {demoProjects.map((project) => (
+          <ProjectCard project={project} key={project.projectId} />
+        ))}
+      </Grid>
       <Dialog open={open} onClose={handleClose} maxWidth='sm' fullWidth title='Create Project'>
         <CustomForm
           fields={fields}

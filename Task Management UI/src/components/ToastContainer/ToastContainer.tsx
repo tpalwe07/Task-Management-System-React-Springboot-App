@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Toast from '../Toast/Toast';
 import { AppStore } from '../../contexts/appStore/store';
 import { getToastState } from '../../contexts/appStore/selector';
-import useToast from '../../hooks/responsive/useToast';
+import useToast from '../../hooks/useToast';
 
 const ToastContainer: React.FC = () => {
   const { state } = useContext(AppStore);

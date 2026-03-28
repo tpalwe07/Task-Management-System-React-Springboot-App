@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { AppStore } from '../../contexts/appStore/store';
-import { TOAST_ENUM } from '../../contexts/appStore/reducer';
-import type { ToastType } from '../../components/Toast/Toast';
+import { AppStore } from '../contexts/appStore/store';
+import { TOAST_ENUM } from '../contexts/appStore/reducer';
+import type { ToastType } from '../components/Toast/Toast';
 
 const useToast = () => {
   const { dispatch } = useContext(AppStore);
