@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Dialog from '../../components/Dialog/Dialog';
 import IconButton from '@mui/material/IconButton';
@@ -7,8 +7,10 @@ import CustomForm from '../../components/Form/Form';
 import type { Field, FormValues } from '../../components/Form/types';
 import dayjs from 'dayjs';
 import type { Project } from '../../models/project.model';
-import { createProject } from '../../services/project';
-import useToast from '../../hooks/responsive/useToast';
+import { createProject, getProjects } from '../../services/project';
+import useToast from '../../hooks/useToast';
+import ProjectCard from '../../components/Card/Card';
+import Grid from '@mui/material/Grid';
 
 const fields: Field[] = [
   {
@@ -42,9 +44,25 @@ const initialValues = { name: '', date: dayjs().format('YYYY-MM-DD'), descriptio
 const ProjectPage: React.FC = () => {
   const [open, setOpen] = useState(false);
   const { success, error } = useToast();
+  const [projects, setProjects] = useState<Project[]>([]);
 
+  useEffect(() => {
+    fetchProjects();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const fetchProjects = async () => {
+    try {
+      const projects = await getProjects();
+      setProjects(projects);
+    } catch (err) {
+      error('Failed to fetch projects. Please try again.');
+      console.error('Error fetching projects:', err);
+    }
+  };
 
   const handleSubmit = async (values: FormValues) => {
     const payload: Project = {
@@ -55,6 +73,7 @@ const ProjectPage: React.FC = () => {
     try {
       await createProject(payload);
       success('Project created successfully!');
+      fetchProjects();
       setOpen(false);
     } catch (err) {
       error('Failed to create project. Please try again.');
@@ -69,6 +88,11 @@ const ProjectPage: React.FC = () => {
           <AddIcon />
         </IconButton>
       </Box>
+      <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
+        {projects.map((project) => (
+          <ProjectCard project={project} key={project.projectId} />
+        ))}
+      </Grid>
       <Dialog open={open} onClose={handleClose} maxWidth='sm' fullWidth title='Create Project'>
         <CustomForm
           fields={fields}

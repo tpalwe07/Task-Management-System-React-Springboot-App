@@ -28,7 +28,7 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { id: 'tasks', label: 'Tasks', icon: <TaskIcon /> },
-  { id: 'projects', label: 'Projects', icon: <FolderIcon />, route: '/' },
+  { id: 'projects', label: 'Projects', icon: <FolderIcon />, route: '/projects' },
   { id: 'documents', label: 'Documents', icon: <DescriptionIcon /> },
   { id: 'analytics', label: 'Analytics', icon: <BarChartIcon /> },
   { id: 'settings', label: 'Settings', icon: <SettingsIcon /> }

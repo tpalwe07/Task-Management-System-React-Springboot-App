@@ -5,7 +5,7 @@ import Project from './pages/Project/ProjectPage';
 const AppRoutes = () => (
   <Routes>
     <Route path='/' element={<Layout />}>
-      <Route index element={<Project />} />
+      <Route path='/projects' element={<Project />} />
       {/* Add more routes here as needed */}
     </Route>
   </Routes>
