@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Snackbar, { type SnackbarCloseReason, type SnackbarOrigin } from '@mui/material/Snackbar';
 import useResponsive from '../../hooks/responsive/useResponsive';
 import { COLORS } from '../../theme/theme';
-import { CheckCircle, Error } from '@mui/icons-material';
+import { CheckCircle, Error, Info, Warning } from '@mui/icons-material';
 
 export const AUTO_HIDE_DURATION = 3000;
 export type ToastType = 'success' | 'error' | 'warning' | 'info';
@@ -65,10 +65,21 @@ const Toast = ({
         <Error height='2.3rem' width='2.3rem' viewBox='0 0 24 20' color='inherit' />
       ) : (
         <></>
-      )
+      ),
+    warning:
+      type === 'warning' ? (
+        <Warning height='2.3rem' width='2.3rem' viewBox='0 0 24 20' color='inherit' />
+      ) : (
+        <></>
+      ),
+    info: type === 'info' ? (
+      <Info height='2.3rem' width='2.3rem' viewBox='0 0 24 20' color='inherit' />
+    ) : (
+      <></>
+    )
   };
 
-  const shouldShowIcon = type === 'success' || type === 'error';
+  const shouldShowIcon = type === 'success' || type === 'error' || type === 'warning' || type === 'info';
 
   return (
     <Snackbar
