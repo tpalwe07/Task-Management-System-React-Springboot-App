@@ -11,6 +11,7 @@ import { createProject, getProjects } from '../../services/project';
 import useToast from '../../hooks/useToast';
 import ProjectCard from '../../components/Card/Card';
 import Grid from '@mui/material/Grid';
+import { Alert, Stack, Typography } from '@mui/material';
 
 const fields: Field[] = [
   {
@@ -89,6 +90,15 @@ const ProjectPage: React.FC = () => {
         </IconButton>
       </Box>
       <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
+        {projects.length === 0 && (
+          <Stack spacing={2}>
+            <Alert severity='warning'>
+              <Typography variant='body2' color='text.secondary'>
+                No projects found.
+              </Typography>
+            </Alert>
+          </Stack>
+        )}
         {projects.map((project) => (
           <ProjectCard project={project} key={project.projectId} />
         ))}
