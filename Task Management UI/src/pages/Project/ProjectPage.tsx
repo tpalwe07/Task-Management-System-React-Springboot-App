@@ -6,14 +6,17 @@ import AddIcon from '@mui/icons-material/Add';
 import CustomForm from '../../components/Form/Form';
 import type { Field, FormValues } from '../../components/Form/types';
 import dayjs from 'dayjs';
+import type { Project } from '../../models/project.model';
+import { createProject } from '../../services/project';
+import useToast from '../../hooks/responsive/useToast';
 
 const fields: Field[] = [
   {
-    name: 'name',
-    label: 'Project Name',
+    name: 'title',
+    label: 'Project Title',
     type: 'text',
-    validations: { required: { message: 'Project name is required' } },
-    componentsOtherProps: { placeholder: 'Enter project name' },
+    validations: { required: { message: 'Project title is required' } },
+    componentsOtherProps: { placeholder: 'Enter project title' },
     gridProps: { size: { xs: 12 } }
   },
   {
@@ -36,17 +39,27 @@ const fields: Field[] = [
 
 const initialValues = { name: '', date: dayjs().format('YYYY-MM-DD'), description: '' };
 
-const Project: React.FC = () => {
+const ProjectPage: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const { success, error } = useToast();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleSubmit = (values: FormValues) => {
-    // eslint-disable-next-line no-console
-    console.log('Form Values:', values);
-    // Handle project creation logic here
-    setOpen(false);
+  const handleSubmit = async (values: FormValues) => {
+    const payload: Project = {
+      title: values.title as string,
+      description: values.description as string,
+      startDate: values.date as string
+    };
+    try {
+      await createProject(payload);
+      success('Project created successfully!');
+      setOpen(false);
+    } catch (err) {
+      error('Failed to create project. Please try again.');
+      console.error('Error creating project:', err);
+    }
   };
 
   return (
@@ -72,5 +85,5 @@ const Project: React.FC = () => {
   );
 };
 
-Project.displayName = 'Project';
-export default Project;
+ProjectPage.displayName = 'ProjectPage';
+export default ProjectPage;
