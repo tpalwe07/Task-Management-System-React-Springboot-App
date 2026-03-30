@@ -8,9 +8,13 @@ import com.parkconnect.task_management.entity.Project;
 
 public interface ProjectService {
     
-    Project addNewProject(Project project);
+    Project addNewProject(ProjectDetailDto project);
 
     List<ProjectDto> getProjects();
 
     ProjectDetailDto getProjectById(Integer projectId);
+
+    void deleteProject(Integer projectId);
+
+    String updateProject(Integer projectId, ProjectDetailDto projectDetailDto);
 }
