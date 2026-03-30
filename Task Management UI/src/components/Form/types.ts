@@ -106,7 +106,6 @@ export interface CustomFormProps {
   formContainerStyles?: React.CSSProperties;
   formActionContainerStyles?: MuiGridProps['sx'];
   formButtonStyles?: SxProps<Theme>;
-  onFormChange?: (values: FormValues) => void;
 }
 
 export interface FormState {

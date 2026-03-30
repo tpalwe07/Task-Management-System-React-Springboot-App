@@ -3,7 +3,6 @@ import {
   type FC,
   type FormEvent,
   useCallback,
-  useEffect,
   useMemo,
   useReducer,
   useRef,
@@ -62,19 +61,12 @@ const CustomForm: FC<CustomFormProps> = ({
   isButtonLoading = false,
   formContainerStyles,
   formActionContainerStyles,
-  formButtonStyles,
-  onFormChange
+  formButtonStyles
   // eslint-disable-next-line complexity
 }) => {
   const [state, dispatch] = useReducer(formReducer, initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const prevStateRef = useRef(state); // Create a ref to store the previous state
-
-  // Notify parent of form value changes in real time
-  useEffect(() => {
-    onFormChange?.(state as unknown as FormValues);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state]);
 
   // Initialize form state based on initialValues and fields on component mount
   useMemo(() => {
@@ -434,7 +426,7 @@ const CustomForm: FC<CustomFormProps> = ({
       </Grid>
     </form>
   );
-};;
+};
 
 CustomForm.displayName = 'CustomForm';
 

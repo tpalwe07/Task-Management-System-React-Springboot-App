@@ -17,7 +17,7 @@ import Button, { type CustomButtonProps } from '../Button/Button';
 interface PropsInterface extends Omit<DialogProps, 'title' | 'onClose'> {
   onClose: () => void;
   onSubmit?: () => void;
-  loading?: boolean;
+
   title?: React.ReactNode;
   dividers?: boolean;
   iconCloseSx?: SxProps<Theme>;
@@ -34,14 +34,14 @@ const Dialog = ({
   children,
   onClose,
   onSubmit,
-  loading = false,
+
   dividers = true,
   submitButtonSx = {},
   submitButtonProps = {},
   dialogContentSx = {},
   iconCloseSx = { right: 8 },
-  onCloseButton = 'Cancel',
-  onSubmitButton = 'Submit',
+  onCloseButton = 'button.cancel',
+  onSubmitButton = 'button.submit',
   ...props
   // eslint-disable-next-line complexity
 }: PropsInterface) => {
@@ -72,7 +72,6 @@ const Dialog = ({
             <Typography>{onCloseButton}</Typography>
           </Button>
           <Button
-            loading={loading}
             sx={submitButtonSx}
             {...submitButtonProps}
             onClick={onSubmit}
