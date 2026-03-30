@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.parkconnect.task_management.dto.ProjectDetailDto;
 import com.parkconnect.task_management.dto.ProjectDto;
 import com.parkconnect.task_management.entity.Project;
+import com.parkconnect.task_management.mapper.ProjectMapper;
 import com.parkconnect.task_management.repository.ProjectRepository;
 
 @Service
@@ -18,8 +19,10 @@ public class ProjectServiceImpl implements ProjectService {
         this.projectListRepository = projectListRepository;
     }
 
-    public Project addNewProject(Project project) {
-        return projectListRepository.save(project);
+    public Project addNewProject(ProjectDetailDto project) {
+
+        Project newProject  = ProjectMapper.ProjectDetailDtoToProjectEntity(project);
+        return projectListRepository.save(newProject);
     }
 
     public List<ProjectDto> getProjects() {
@@ -36,5 +39,18 @@ public class ProjectServiceImpl implements ProjectService {
             return new ProjectDetailDto(project.getProjectId(), project.getTitle(), project.getDescription(), project.getStartDate());
         }
         return null;
+    }
+
+    public void deleteProject(Integer projectId) {
+        projectListRepository.deleteById(projectId);
+    }
+
+    public String updateProject(Integer projectId, ProjectDetailDto projectDetailDto) {
+        // Project project = projectListRepository.findById(projectId).orElse(null);
+        projectDetailDto.setProjectId(projectId);
+        Project filteredProjectDetail = ProjectMapper.ProjectDetailDtoToProjectEntity(projectDetailDto);
+        // filteredProjectDetail.setProjectId(projectId);
+        projectListRepository.save(filteredProjectDetail);
+        return "project added successfully";
     }
 }
