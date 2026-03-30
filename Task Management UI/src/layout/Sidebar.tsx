@@ -51,7 +51,11 @@ const Sidebar: React.FC = () => {
     navigate(route);
   };
 
-  const isActive = (route: string) => location.pathname === route;
+  const isActive = (route: string) => {
+    if (!route) return false;
+    // Check if current path matches or starts with the route
+    return location.pathname === route || location.pathname.startsWith(`${route}/`);
+  };
 
   // eslint-disable-next-line complexity
   const renderMenuItem = (item: MenuItem) => (
