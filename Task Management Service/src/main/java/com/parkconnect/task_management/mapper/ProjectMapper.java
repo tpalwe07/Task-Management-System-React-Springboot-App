@@ -1,22 +1,23 @@
 package com.parkconnect.task_management.mapper;
 
-import com.parkconnect.task_management.dto.ProjectDetailDto;
-import com.parkconnect.task_management.entity.Project;
+import com.parkconnect.task_management.config.TenantContext;
+import com.parkconnect.task_management.dto.ProjectDto;
+import com.parkconnect.task_management.entity.ProjectEntity;
 
 public class ProjectMapper {
     
-    public static Project ProjectDetailDtoToProjectEntity(ProjectDetailDto projectDto){
-        Project project = new Project();
-        project.setProjectId(projectDto.getProjectId());
-        project.setTitle((projectDto.getTitle()));
-        project.setDescription((projectDto.getDescription()));
-        project.setStartDate((projectDto.getStartDate()));
+    public static ProjectEntity ProjectDetailDtoToProjectEntity(ProjectDto projectDto, ProjectEntity projectEntity){
+        if (projectDto.getProjectId() != null) projectEntity.setProjectId(projectDto.getProjectId());
+        if (projectDto.getTitle() != null) projectEntity.setTitle((projectDto.getTitle()));
+        if (projectDto.getDescription()!= null) projectEntity.setDescription((projectDto.getDescription()));
+        if (projectDto.getStartDate() != null) projectEntity.setStartDate((projectDto.getStartDate()));
+        projectEntity.setTenantId(TenantContext.DEFAULT_TENANT);
 
-        return project;
+        return projectEntity;
     }
 
-    public static ProjectDetailDto ProjectEntityToProjectDetailDto(Project project){
-        ProjectDetailDto projectDto = new ProjectDetailDto(project.getProjectId(),project.getTitle(),project.getDescription(),project.getStartDate());
+    public static ProjectDto ProjectEntityToProjectDetailDto(ProjectEntity projectEntity){
+        ProjectDto projectDto = new ProjectDto(projectEntity.getProjectId(),projectEntity.getTitle(),projectEntity.getDescription(),projectEntity.getStartDate());
         
         return projectDto;
     }

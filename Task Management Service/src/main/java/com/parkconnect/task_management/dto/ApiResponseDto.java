@@ -7,9 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProjectDetailDto {
-    private Integer projectId;
-    private String title; 
-    private String description;
-    private String startDate;
+public class ApiResponseDto<T> {
+    private int status;
+    private String message;
+    private T data;
 }
