@@ -10,7 +10,7 @@ import lombok.Data;
 @Entity
 @Table(name = "projects")
 @Data
-public class Project {
+public class ProjectEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +19,5 @@ public class Project {
     private String title;
     private String description;
     private String startDate;
+    private String tenantId;
 }
