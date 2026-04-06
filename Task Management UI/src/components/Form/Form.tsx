@@ -31,7 +31,7 @@ import type {
 
 import './Form.css';
 import { validateField } from './formUtility';
-import { Divider, FormHelperText, Grid } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 import DateTimePicker, { type DateTimePickerProps } from '../DateTimePicker/DateTimePicker';
 import Select, { type SelectPropsInterface } from '../Select/Select';
 import DatePicker, { type DatePickerProps } from '../DatePicker/DatePicker';
@@ -244,11 +244,7 @@ const CustomForm: FC<CustomFormProps> = ({
               handleChange(e as ChangeEvent<HTMLInputElement>, field as TextFieldProps)
             }
             error={!!errors[field.name]}
-            helperText={
-              errors[field.name]?.message ? (
-                <FormHelperText error>{errors[field.name]?.message}</FormHelperText>
-              ) : null
-            }
+            helperText={errors[field.name]?.message ?? null}
             required={!!field.validations?.required}
           />
         )}

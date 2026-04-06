@@ -16,7 +16,7 @@ import Button from '../../components/Button/Button';
 import ProjectModal from './ProjectModal';
 import AlertText from '../../components/AlertText/AlertText';
 
-const initialValues = { name: '', startDate: dayjs().format('YYYY-MM-DD'), description: '' };
+const initialValues = { title: '', startDate: dayjs().format('YYYY-MM-DD'), description: '' };
 
 const ProjectPage: React.FC = () => {
   const [open, setOpen] = useState(false);
