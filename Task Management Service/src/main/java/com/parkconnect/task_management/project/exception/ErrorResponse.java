@@ -1,4 +1,4 @@
-package com.parkconnect.task_management.exception;
+package com.parkconnect.task_management.project.exception;
 
 import java.time.LocalDateTime;
 import java.util.List;

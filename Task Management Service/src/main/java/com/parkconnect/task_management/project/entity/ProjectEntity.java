@@ -1,4 +1,4 @@
-package com.parkconnect.task_management.entity;
+package com.parkconnect.task_management.project.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

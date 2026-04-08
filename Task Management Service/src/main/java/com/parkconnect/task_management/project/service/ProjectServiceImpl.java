@@ -1,14 +1,14 @@
-package com.parkconnect.task_management.service;
+package com.parkconnect.task_management.project.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.parkconnect.task_management.dto.ProjectDto;
-import com.parkconnect.task_management.entity.ProjectEntity;
-import com.parkconnect.task_management.exception.ResourceNotFoundException;
-import com.parkconnect.task_management.mapper.ProjectMapper;
-import com.parkconnect.task_management.repository.ProjectRepository;
+import com.parkconnect.task_management.project.dto.ProjectDto;
+import com.parkconnect.task_management.project.entity.ProjectEntity;
+import com.parkconnect.task_management.project.exception.ResourceNotFoundException;
+import com.parkconnect.task_management.project.mapper.ProjectMapper;
+import com.parkconnect.task_management.project.repository.ProjectRepository;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {

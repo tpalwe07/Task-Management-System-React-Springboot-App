@@ -1,8 +1,8 @@
-package com.parkconnect.task_management.mapper;
+package com.parkconnect.task_management.project.mapper;
 
 import com.parkconnect.task_management.config.TenantContext;
-import com.parkconnect.task_management.dto.ProjectDto;
-import com.parkconnect.task_management.entity.ProjectEntity;
+import com.parkconnect.task_management.project.dto.ProjectDto;
+import com.parkconnect.task_management.project.entity.ProjectEntity;
 
 public class ProjectMapper {
     

@@ -1,8 +1,8 @@
-package com.parkconnect.task_management.service;
+package com.parkconnect.task_management.project.service;
 
 import java.util.List;
 
-import com.parkconnect.task_management.dto.ProjectDto;
+import com.parkconnect.task_management.project.dto.ProjectDto;
 
 public interface ProjectService {
     

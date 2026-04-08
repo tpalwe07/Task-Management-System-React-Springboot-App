@@ -1,4 +1,4 @@
-package com.parkconnect.task_management.exception;
+package com.parkconnect.task_management.project.exception;
 
 public class BadRequestException extends RuntimeException{
     
