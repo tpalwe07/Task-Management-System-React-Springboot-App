@@ -1,4 +1,4 @@
-package com.parkconnect.task_management.dto;
+package com.parkconnect.task_management.project.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

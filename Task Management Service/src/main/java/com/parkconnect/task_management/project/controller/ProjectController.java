@@ -1,4 +1,4 @@
-package com.parkconnect.task_management.controller;
+package com.parkconnect.task_management.project.controller;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.parkconnect.task_management.dto.ApiResponseDto;
-import com.parkconnect.task_management.dto.ProjectDto;
-import com.parkconnect.task_management.service.ProjectService;
+import com.parkconnect.task_management.project.dto.ApiResponseDto;
+import com.parkconnect.task_management.project.dto.ProjectDto;
+import com.parkconnect.task_management.project.service.ProjectService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +39,7 @@ public class ProjectController {
         ProjectDto savedProject = projectService.addNewProject(project);
 
         ApiResponseDto<ProjectDto> response = new ApiResponseDto<ProjectDto>
-                                                  (200,
+                                                  (201,
                                                    "Project created successfully", 
                                                    savedProject);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
