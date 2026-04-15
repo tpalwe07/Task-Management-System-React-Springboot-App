@@ -3,4 +3,5 @@ export interface Project {
   title?: string;
   description?: string;
   startDate?: string;
+  tenantId?: string;
 };
