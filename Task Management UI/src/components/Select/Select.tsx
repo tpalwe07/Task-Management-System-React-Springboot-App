@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 
 export type OptionType = {
-  value: string;
+  value: string | number;
   name: ReactNode;
 };
 
