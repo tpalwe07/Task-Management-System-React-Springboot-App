@@ -14,4 +14,19 @@ const axiosInstance = axios.create({
   timeout: 10000
 });
 
+// Add a request interceptor to set Authorization header dynamically
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('jwt_token');
+    if (token) {
+      config.headers = config.headers || {};
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 export default axiosInstance;
