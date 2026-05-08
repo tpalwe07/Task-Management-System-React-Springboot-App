@@ -16,7 +16,6 @@ import { isAuthenticated, login } from '../../services/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme';
 import { COLORS, DARK_COLORS } from '../../theme/theme';
-// Vite requires static assets from public/ to be referenced as "/favicon.svg"
 const logo = '/favicon.svg';
 
 const validateEmail = (email: string) => {

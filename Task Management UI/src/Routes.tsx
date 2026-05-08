@@ -16,9 +16,7 @@ const AppRoutes = () => (
     <Route path='/' element={<Outlet />}>
       {/* Redirect root based on auth */}
       <Route index element={<Navigate to={isAuthenticated() ? '/projects' : '/login'} replace />} />
-      {/* Standalone login page, not wrapped in Layout */}
       <Route path='login' element={<LoginPage />} />
-      {/* All other routes are protected and use Layout */}
       <Route element={<PrivateRoute />}>
         <Route element={<Layout />}>
           <Route
@@ -48,7 +46,6 @@ const AppRoutes = () => (
           {/* Add more routes here as needed */}
         </Route>
       </Route>
-      {/* Catch-all for unknown routes */}
       <Route
         path='*'
         element={isAuthenticated() ? <NotFoundPage /> : <Navigate to='/login' replace />}
