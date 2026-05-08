@@ -3,9 +3,9 @@ import axiosInstance from '../api/apiConfig';
 const TOKEN_KEY = 'jwt_token';
 const REFRESH_TOKEN_KEY = 'refresh_token';
 
-
-export const login = async (username: string, password: string) => {
-  const response = await axiosInstance.post('/auth/login', { username, password });
+// eslint-disable-next-line complexity
+export const login = async (email: string, password: string) => {
+  const response = await axiosInstance.post('/auth/login', { email, password });
   const token = response.data?.data?.accessToken;
   const refreshToken = response.data?.data?.refreshToken;
   if (token) {
