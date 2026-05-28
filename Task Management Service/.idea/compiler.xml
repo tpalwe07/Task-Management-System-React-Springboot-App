@@ -7,17 +7,27 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-server" />
+        <module name="notification_service" />
         <module name="api_gateway" />
       </profile>
-      <profile name="Annotation profile for task_service" enabled="true">
+      <profile name="Annotation profile for task-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+        </processorPath>
+        <module name="project_service" />
+        <module name="task_service" />
+      </profile>
+      <profile name="Annotation profile for auth-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
-        <module name="project_service" />
-        <module name="task_service" />
         <module name="auth_service" />
       </profile>
     </annotationProcessing>
@@ -27,6 +37,7 @@
       <module name="api_gateway" options="-parameters" />
       <module name="auth_service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="notification_service" options="-parameters" />
       <module name="project_service" options="-parameters" />
       <module name="task_service" options="-parameters" />
     </option>
