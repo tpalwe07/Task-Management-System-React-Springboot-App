@@ -1,0 +1,160 @@
+version: '3.9'
+
+networks:
+  parkconnect-network:
+    driver: bridge
+
+services:
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: zookeeper
+    networks:
+      - parkconnect-network
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo ruok | nc localhost 2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: kafka
+    networks:
+      - parkconnect-network
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      # Two listeners: one for inside Docker (kafka:29092), one for outside (localhost:9092)
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+    healthcheck:
+      test: ["CMD", "bash", "-c", "kafka-topics --bootstrap-server localhost:9092 --list"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  eureka-server:
+    build: ./eureka-server
+    container_name: eureka-server
+    networks:
+      - parkconnect-network
+    ports:
+      - "8761:8761"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:8761/actuator/health || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  auth-service:
+    build: ./auth_service
+    container_name: auth-service
+    networks:
+      - parkconnect-network
+    ports:
+      - "8083:8083"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: ${DB_URL}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      EUREKA_URL: http://eureka-server:8761/eureka/
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:8083/actuator/health || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  project-service:
+    build: ./project_service
+    container_name: project-service
+    networks:
+      - parkconnect-network
+    ports:
+      - "8081:8081"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: ${DB_URL}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092   # ← internal Docker port
+      EUREKA_URL: http://eureka-server:8761/eureka/
+
+  task-service:
+    build: ./task_service
+    container_name: task-service
+    networks:
+      - parkconnect-network
+    ports:
+      - "8082:8082"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: ${DB_URL}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092   # ← internal Docker port
+      EUREKA_URL: http://eureka-server:8761/eureka/
+
+  notification-service:
+    build: ./notification_service
+    container_name: notification-service
+    networks:
+      - parkconnect-network
+    ports:
+      - "8084:8084"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092   # ← internal Docker port
+      EUREKA_URL: http://eureka-server:8761/eureka/
+
+  api-gateway:
+    build: ./api_gateway
+    container_name: api-gateway
+    networks:
+      - parkconnect-network
+    ports:
+      - "8080:8080"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+#      auth-service:
+#        condition: service_healthy
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      EUREKA_URL: http://eureka-server:8761/eureka/

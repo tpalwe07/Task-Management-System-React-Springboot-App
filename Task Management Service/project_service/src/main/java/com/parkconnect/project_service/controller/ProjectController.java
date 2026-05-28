@@ -4,20 +4,11 @@ import java.util.List;
 
 import com.parkconnect.project_service.dto.ApiResponseDto;
 import com.parkconnect.project_service.dto.ProjectDto;
+import com.parkconnect.project_service.publisher.ProjectEventPublisher;
 import com.parkconnect.project_service.service.ProjectService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/v1/api/projects")
@@ -30,13 +21,15 @@ public class ProjectController {
     }
 
     @GetMapping("")
-    public List<ProjectDto> getProjects(){
-        return projectService.getProjects();
+    public List<ProjectDto> getProjects(@RequestHeader("X-User-Id") String userId){
+        return projectService.getProjects( userId);
     }
     
     @PostMapping("/addProject")
-    public ResponseEntity<ApiResponseDto<ProjectDto>> addNewProject(@RequestBody ProjectDto project) {
-        ProjectDto savedProject = projectService.addNewProject(project);
+    public ResponseEntity<ApiResponseDto<ProjectDto>> addNewProject(
+            @RequestBody ProjectDto project, @RequestHeader(value = "X-User-Id", required = false) String userId) {
+
+        ProjectDto savedProject = projectService.addNewProject(project, userId);
 
         ApiResponseDto<ProjectDto> response = new ApiResponseDto<ProjectDto>
                                                   (201,
@@ -45,9 +38,20 @@ public class ProjectController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @PutMapping("/{projectId}")
+    public ResponseEntity<ApiResponseDto<ProjectDto>> updateProject(
+            @PathVariable Integer projectId,
+            @RequestBody ProjectDto projectDto,
+            @RequestHeader(value = "X-User-Id", required = false) String userId) {
+
+        ProjectDto updated = projectService.updateProject(projectId, projectDto, userId);
+
+        return ResponseEntity.ok(new ApiResponseDto<>(200, "Project updated successfully", updated));
+    }
+
     @GetMapping("/{projectId}")
-    public ProjectDto getProjectById(@PathVariable Integer projectId) {
-        ProjectDto project = projectService.getProjectById(projectId);
+    public ProjectDto getProjectById(@PathVariable Integer projectId, @RequestHeader("X-User-Id") String userId) {
+        ProjectDto project = projectService.getProjectById(projectId, userId);
         if (project == null) {
             return null;
         }
@@ -55,18 +59,12 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{projectId}")
-    public ResponseEntity<ApiResponseDto<Integer>> deleteProject(@PathVariable Integer projectId) {
-        projectService.deleteProject(projectId);
+    public ResponseEntity<ApiResponseDto<Integer>> deleteProject(
+            @PathVariable Integer projectId,
+            @RequestHeader(value = "X-User-Id", required = false) String userId) {
 
-        ApiResponseDto<Integer> response = new ApiResponseDto<Integer>(200, "Project deleted successfully", projectId);
-        return new ResponseEntity<>(response , HttpStatus.OK);
+        projectService.deleteProject(projectId, userId);
+
+        return ResponseEntity.ok(new ApiResponseDto<>(200, "Project deleted successfully", projectId));
     }
-
-    @PutMapping("/{projectId}")
-    public String updateProject(@PathVariable Integer projectId, @RequestBody ProjectDto projectDto){
-
-        projectService.updateProject(projectId, projectDto);
-        return "project updated Successfully";
-    }
-    
 }

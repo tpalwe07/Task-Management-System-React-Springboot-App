@@ -5,83 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6abf3470-eed0-4bff-bc72-3678af68e9cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/Task Management System.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api_gateway/src/main/java/com/parkconnect/api_gateway/filter/AuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api_gateway/src/main/java/com/parkconnect/api_gateway/filter/AuthenticationFilterGatewayFilterFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api_gateway/src/main/java/com/parkconnect/api_gateway/util/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api_gateway/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/exception/AuthException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/exception/BadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/exception/DatabaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/exception/DuplicateResourceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/exception/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/exception/ExpiredJwtException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/exception/JwtException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/config/TenantContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/dto/ApiResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task_service/src/main/java/com/parkconnect/task_service/config/TenantContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task_service/src/main/java/com/parkconnect/task_service/dto/ApiResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task_service/src/main/java/com/parkconnect/task_service/service/TaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task_service/src/main/java/com/parkconnect/task_service/service/TaskServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/Enums/TaskPriorityEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/Enums/TaskStatusEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/TaskManagementApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/config/TenantContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/config/UserDetailsServiceConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/controller/ProjectController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/controller/TaskController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/dto/ApiResponseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/dto/AuthResponseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/dto/LoginRequestDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/dto/ProjectDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/dto/RefreshTokenRequestDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/dto/RegisterRequestDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/dto/TaskDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/entity/ProjectEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/entity/RefreshTokenEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/entity/TaskEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/entity/UserEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/exception/AuthException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/exception/BadRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/exception/DatabaseException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/exception/DuplicateResourceException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/exception/ErrorResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/exception/ExpiredJwtException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/exception/JwtException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/exception/ResourceNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/mapper/ProjectMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/mapper/TaskMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/project/mapper/ProjectMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/repository/ProjectRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/repository/RefreshTokenRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/repository/TaskRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/security/JwtAuthFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/security/JwtService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/service/ProjectService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/service/ProjectServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/service/RefreshTokenService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/service/RefreshTokenServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/service/TaskService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/service/TaskServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/parkconnect/task_management/service/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/parkconnect/task_management/TaskManagementApplicationTests.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api_gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth_service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification_service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification_service/src/main/java/com/parkconnect/notification_service/config/KafkaConsumerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification_service/src/main/java/com/parkconnect/notification_service/config/WebFluxConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification_service/src/main/java/com/parkconnect/notification_service/config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification_service/src/main/java/com/parkconnect/notification_service/consumer/NotificationKafkaConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification_service/src/main/java/com/parkconnect/notification_service/controller/NotificationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification_service/src/main/java/com/parkconnect/notification_service/model/EventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification_service/src/main/java/com/parkconnect/notification_service/model/NotificationEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification_service/src/main/java/com/parkconnect/notification_service/sink/NotificationSink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/config/KafkaProducerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/event/EventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/event/NotificationEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/exception/UnauthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/publisher/ProjectEventPublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task_service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task_service/src/main/java/com/parkconnect/task_service/event/EventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task_service/src/main/java/com/parkconnect/task_service/event/NotificationEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task_service/src/main/java/com/parkconnect/task_service/publisher/ProjectEventPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api_gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_gateway/src/test/java/com/parkconnect/api_gateway/ApiGatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/api_gateway/src/test/java/com/parkconnect/api_gateway/ApiGatewayApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auth_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth_service/src/main/java/com/parkconnect/auth_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/dto/ProjectDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/dto/ProjectDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/entity/ProjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/entity/ProjectEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/mapper/ProjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/mapper/ProjectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/repository/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_service/src/main/java/com/parkconnect/project_service/service/ProjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task_service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +61,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Record" />
+        <option value="package-info" />
+        <option value="Exception" />
         <option value="Class" />
       </list>
     </option>
@@ -145,6 +117,7 @@
     &quot;Spring Boot.Auth services.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.Combine Services.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.Combine services.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Notification Service.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.Project Service.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.Task Service.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.eureka server.executor&quot;: &quot;Run&quot;,
@@ -153,7 +126,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tejas/OneDrive/Documents/Task Management System/Task Management Service/task_service/src/main/java/com/parkconnect/task_service&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tejas/OneDrive/Documents/Task Management System/Task Management Service/task_service&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -162,14 +135,18 @@
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\tejas\OneDrive\Documents\Task Management System\Task Management Service\task_service\src\main\java\com\parkconnect\task_service" />
-      <recent name="C:\Users\tejas\OneDrive\Documents\Task Management System\Task Management Service\Combine Services\src\main\java\com\parkconnect\task_management" />
+      <recent name="C:\Users\tejas\OneDrive\Documents\Task Management System\Task Management Service\task_service" />
+      <recent name="C:\Users\tejas\OneDrive\Documents\Task Management System\Task Management Service\api_gateway" />
+      <recent name="C:\Users\tejas\OneDrive\Documents\Task Management System\Task Management Service\auth_service" />
+      <recent name="C:\Users\tejas\OneDrive\Documents\Task Management System\Task Management Service\eureka-server" />
+      <recent name="C:\Users\tejas\OneDrive\Documents\Task Management System\Task Management Service\notification_service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\tejas\OneDrive\Documents\Task Management System\Task Management Service\api_gateway\src\main\resources" />
@@ -177,7 +154,7 @@
       <recent name="C:\Users\tejas\OneDrive\Documents\Task Management System\Task Management Service\project_service\src\main\java\com\parkconnect\project_service" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Api Gateway">
+  <component name="RunManager" selected="Spring Boot.Task Service">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Task Management Service" />
       <method v="2">
@@ -199,6 +176,13 @@
     <configuration name="Auth Service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="auth_service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.parkconnect.auth_service.AuthServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Notification Service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="notification_service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.parkconnect.notification_service.NotificationServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -233,6 +217,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Spring Boot.Notification Service" />
       <item itemvalue="Spring Boot.Api Gateway" />
       <item itemvalue="Spring Boot.Auth Service" />
       <item itemvalue="Spring Boot.eureka server" />
@@ -256,15 +241,19 @@
   <component name="UnknownFeatures">
     <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
     <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.kafka:kafka_2.13" />
     <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
     <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
     <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
     <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
     <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
     <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
     <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-messaging" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
   </component>
 </project>

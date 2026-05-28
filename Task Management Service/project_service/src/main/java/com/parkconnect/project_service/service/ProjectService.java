@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface ProjectService {
     
-    ProjectDto addNewProject(ProjectDto project);
+    ProjectDto addNewProject(ProjectDto project, String userId);
 
-    List<ProjectDto> getProjects();
+    List<ProjectDto> getProjects(String userId);
 
-    ProjectDto getProjectById(Integer projectId);
+    ProjectDto getProjectById(Integer projectId, String userId);
 
-    void deleteProject(Integer projectId);
+    void deleteProject(Integer projectId,  String userId);
 
-    String updateProject(Integer projectId, ProjectDto projectDetailDto);
+    ProjectDto updateProject(Integer projectId, ProjectDto projectDetailDto, String userId);
 }

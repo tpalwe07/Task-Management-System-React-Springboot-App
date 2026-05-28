@@ -1,11 +1,11 @@
 package com.parkconnect.project_service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "projects")
@@ -20,4 +20,15 @@ public class ProjectEntity {
     private String description;
     private String startDate;
     private String tenantId;
+
+    @Column(nullable = false)
+    private String createdByUserId;       // ← new: ties project to a user
+
+    private String lastModifiedByUserId;  // ← new: audit trail
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 }
